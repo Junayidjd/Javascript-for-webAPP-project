@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple DOM Todo App</title>
+
+
+    <style>
+        /* Add some basic styling to make it look more attractive */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0;
+        }
+    
+        .container {
+          max-width: 400px;
+          margin: 40px auto;
+          padding: 20px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        h1 {
+          color: #333;
+          margin-top: 0;
+        }
+    
+        input[type="text"] {
+          width: 100%;
+          height: 40px;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+        }
+    
+        .btn {
+          background-color: #4CAF50;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+    
+        .btn:hover {
+          background-color: #3e8e41;
+        }
+    
+        .todolistelem {
+          margin-top: 20px;
+        }
+    
+        .todolistelem p {
+          padding: 10px;
+          border-bottom: 1px solid #ccc;
+        }
+    
+        .todolistelem p:last-child {
+          border-bottom: none;
+        }
+      </style>
+  </head>
+  <body>
+    <div>
+      <h1>Simple DOM Todo App</h1>
+      <input type="text" id="inputfield" />
+      <button class="btn">Click Me</button>
+      <div class="todolistelem">
+        <!-- <p id="todofirst"></p> -->
+      </div>
+    </div>
+
+    <script>
+      let inputELem = document.getElementById("inputfield");
+      let clickbtn = document.querySelector(".btn");
+    //   let todofirst = document.getElementById("todofirst");
+    let todolistelem = document.querySelector(".todolistelem");
+
+      const addtodo = () => {
+        console.log(inputELem.value);
+        // todofirst.textContent = inputELem.value;
+
+        let pElem = document.createElement("p");
+        pElem.textContent = inputELem.value;
+        console.log(pElem)
+        todolistelem.append(pElem);
+
+        inputELem.value = "";
+      };
+
+      clickbtn.addEventListener("click", () => {
+        addtodo();
+      });
+
+      todolistelem.addEventListener("click", (event) => {
+        console.log(event.target)
+        let currentElem = event.target
+        currentElem.remove();
+      });
+
+
+    </script>
+  </body>
+</html>
