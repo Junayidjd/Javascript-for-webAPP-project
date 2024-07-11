@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./style.css" />  -->
+    
+    <style>
+       body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+section {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#countDown {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  margin-bottom: 20px;
+}
+
+.buttons button {
+  margin-right: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.buttons button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.resetValue {
+  margin-top: 20px;
+  text-align: left;
+  padding: 10px;
+  background-color: #f7f7f7; /* Light gray background for reset value area */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+      </style>
+  </head>
+  <body>
+    <section>
+      <p id="countDown">0</p>
+      <div class="buttons">
+        <button class="start_btn">Start</button>
+        <button class="reset_btn">Reset</button>
+        <button class="stop_btn">Stop</button>
+        <button class="time_btn">getTime</button>
+        <button class="clear_btn">clearTime</button>
+      </div>
+      <div class="resetValue"></div>
+    </section>
+    <!-- <script>
+      const countDownElement = document.getElementById("countDown");
+const resetValueElement = document.querySelector(".resetValue");
+let startTime;
+let intervalId;
+
+// Function to start the timer
+// const startTimer = () => {
+//   startTime = Date.now();
+//   intervalId = setInterval(() => {
+//     const elapsedTime = Date.now() - startTime;
+//     updateTimerDisplay(elapsedTime);
+//   }, 10); // Update every 10 milliseconds
+// };
+
+
+// const startTimer = () => {
+//   // Clear any existing interval before starting a new one
+//   clearInterval(intervalId);
+  
+//   startTime = Date.now();
+//   intervalId = setInterval(() => {
+//     const elapsedTime = Date.now() - startTime;
+//     updateTimerDisplay(elapsedTime);
+//   }, 10); // Update every 10 milliseconds
+// };
+
+
+
+const startTimer = () => {
+  startTime = Date.now() - elapsedTime; // Calculate start time based on elapsed time
+  intervalId = setInterval(() => {
+    const now = Date.now();
+    elapsedTime = now - startTime;
+    updateTimerDisplay(elapsedTime);
+  }, 10); // Update every 10 milliseconds
+};
+
+
+
+
+
+// Function to stop the timer and show stop time
+const stopTimer = () => {
+  clearInterval(intervalId);
+};
+
+// Function to reset the timer
+const resetTimer = () => {
+  clearInterval(intervalId);
+  countDownElement.innerText = "00:00:00.000";
+};
+
+// Function to update timer display with hours, minutes, seconds, and milliseconds
+const updateTimerDisplay = (elapsedTime) => {
+  const milliseconds = elapsedTime % 1000;
+  let seconds = Math.floor(elapsedTime / 1000);
+  let minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+
+  seconds %= 60;
+  minutes %= 60;
+
+  const formattedTime = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}.${String(milliseconds).padStart(3, "0")}`;
+  countDownElement.innerText = formattedTime;
+};
+
+// Function to show stop value
+const showStopValue = () => {
+  const newPara = document.createElement("p");
+  newPara.innerText = `The stop time is ${countDownElement.innerText}`;
+  resetValueElement.append(newPara);
+};
+
+// Function to clear stop time display
+const clearTimeValue = () => {
+  resetValueElement.innerHTML = "";
+};
+
+// Event listeners
+document.querySelector(".start_btn").addEventListener("click", startTimer);
+document.querySelector(".reset_btn").addEventListener("click", resetTimer);
+document.querySelector(".stop_btn").addEventListener("click", stopTimer);
+document.querySelector(".time_btn").addEventListener("click", showStopValue);
+document.querySelector(".clear_btn").addEventListener("click", clearTimeValue);
+
+    </script> -->
+    <script src="./stopwatch.js"></script>
+  </body>
+</html>
