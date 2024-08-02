@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Hightlighting</title>
+</head>
+<body>
+    <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti excepturi at dolore totam, laboriosam aperiam, corrupti sequi neque omnis iste molestiae, autem magni obcaecati odit ullam non. Animi error numquam itaque magnam, odio autem sequi deserunt asperiores recusandae, dicta alias incidunt maiores cumque obcaecati totam atque sunt perspiciatis ab veniam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni unde numquam quos voluptates esse tenetur iusto, incidunt hic ducimus, natus, beatae atque enim quisquam possimus suscipit harum. Reprehenderit, autem quis? Possimus quod consectetur debitis perferendis aliquam labore corrupti, soluta rerum eum! Quasi consequuntur quae a. Quisquam voluptates libero necessitatibus cumque?
+
+        rat 
+    </p>
+
+    <script>
+        const paragraph = document.querySelector('p');
+
+// Split the text into words
+const words = paragraph.textContent.split(' ');
+console.log(words);
+
+// Loop through each word
+words.forEach((word) => {
+  // Check if the word has more than 8 characters
+  if (word.length > 8) {
+    // Create a new span element to wrap the word
+    const span = document.createElement('span');
+    span.style.backgroundColor = 'yellow';
+    span.textContent = word;
+
+    // Replace the original word with the highlighted word
+    paragraph.innerHTML = paragraph.innerHTML.replace(word, span.outerHTML);
+  }
+});
+    </script>
+</body>
+</html>

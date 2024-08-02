@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO App</title>
+  </head>
+  <body>
+    <section>
+      <h1>TODO App</h1>
+      <form>
+        <div>
+          <input type="text" id="inputvalue" />
+          <button class="btn">Add Todo</button>
+        </div>
+      </form>
+      <section class="todo-lists"></section>
+    </section>
+  </body>
+  <script>
+    let inputValue = document.getElementById('inputvalue')
+    const todoelemappend = document.querySelector(".todo-lists")
+
+
+    getfromlocalstorage = () => {
+     return JSON.parse(localStorage.getItem("TODO App"))
+    }
+
+    addtododynamicInwebPage = (curElem) => {
+      const divelem = document.createElement('div')
+        divelem.classList.add('todo-item')
+        divelem.innerHTML = `<li>${curElem}</li> <button class="deletebtn">Delete</button>`
+        todoelemappend.append(divelem)
+    }
+
+    let localTodoLists = getfromlocalstorage || []
+
+    const addtodolist = (e) =>{
+        e.preventDefault()
+
+        const todolistvalue = inputValue.value.trim()
+        localTodoLists.push(todolistvalue)
+        localTodoLists = [...new Set(localTodoLists)]
+        console.log(localTodoLists);
+        localStorage.setItem("TODO App",JSON.stringify(localTodoLists))
+
+        addtododynamicInwebPage(todolistvalue)
+        inputValue.value = ""
+    }
+
+    const showdatafromlocalstorage = () =>{
+      console.log(localTodoLists);
+      localTodoLists.forEach((curelem) => {
+        addtododynamicInwebPage(curelem)
+      });
+    }
+
+    document.querySelector('.btn').addEventListener('click', (e) =>{
+        addtodolist(e)
+    })
+  </script>
+</html>

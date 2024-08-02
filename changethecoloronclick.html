@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change the color on click</title>
+</head>
+<body>
+    <button class="btn">click to change color</button>
+    
+
+    <script>
+        const getbtn = document.querySelector(".btn")
+
+        changeColorOnClick = () => {
+            document.body.style.backgroundColor = getRandomColor();
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        getbtn.addEventListener('click', changeColorOnClick)
+    </script>
+</body>
+</html>
