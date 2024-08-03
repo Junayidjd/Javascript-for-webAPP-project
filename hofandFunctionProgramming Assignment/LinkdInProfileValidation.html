@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Profile URL Validator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>LinkedIn Profile URL Validator</h2>
+        <input type="text" id="linkedinUrl" placeholder="Enter LinkedIn Profile URL">
+        <button onclick="validateLinkedInUrl()">Validate</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script >
+        function validateLinkedInUrl() {
+    const url = document.getElementById('linkedinUrl').value;
+    const message = document.getElementById('message');
+    const linkedInRegex = /^https:\/\/www\.linkedin\.com\/in\/[a-zA-Z0-9_-]{4,29}[a-zA-Z0-9](\/)?$/;
+
+    if (linkedInRegex.test(url)) {
+        message.style.color = 'green';
+        message.textContent = 'Valid LinkedIn URL!';
+    } else {
+        message.style.color = 'red';
+        message.textContent = 'Invalid LinkedIn URL. Please enter a correct LinkedIn profile URL.';
+    }
+}
+    </script>
+</body>
+</html>
